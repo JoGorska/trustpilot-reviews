@@ -7,6 +7,18 @@ import scrapy
 
 
 class TrustpilotReviewsItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    '''
+    Item containing data collected 
+    from page sumarising company rating
+    '''
+    company_name = scrapy.Field()
+    summary = scrapy.Field()
+
+    one_header = scrapy.Field()
+    one_content = scrapy.Field()
+
+    two_header = scrapy.Field()
+    two_content = scrapy.Field()
+
+    three_header = scrapy.Field()
+    three_content = scrapy.Field()
