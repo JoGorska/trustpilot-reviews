@@ -88,6 +88,9 @@ I have downloaded all 9 sitemaps containing domain lists.
 
 - this gives me possibility to get more companies out of yell, by creating more spiders for other counties or categories, they would all return the same item
 
+### Robots.txt
+
+Robots.txt file can be found [here](https://www.trustpilot.com/robots.txt)
 
 ### Sitemap
 
