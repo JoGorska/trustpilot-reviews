@@ -107,3 +107,5 @@ Robots.txt file can be found [here](https://www.trustpilot.com/robots.txt)
 - [Python Scrapy tutorial at YouTube (full course 25 videos)](https://youtu.be/ve_0h4Y8nuI)
 
 - AI Global media for the challenge
+
+- extract urls from sitemap tutorial [here](https://www.tutorialexample.com/python-parse-xml-sitemap-to-extract-urls-a-simple-guide-python-tutorial/)
