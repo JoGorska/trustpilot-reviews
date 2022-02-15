@@ -32,25 +32,30 @@ def extract_urls():
 
         return(all_review_urls)
 
-# all_review_urls = extract_urls()
 
 def extract_company_domains(urls_list):
     '''
     takes list of review urls and extracts company domains from each item
     '''
     only_urls = []
-    for review_url in example:
+    for review_url in urls_list:
         to_remove = "https://uk.trustpilot.com/review/"
 
         one_url = review_url.replace(to_remove, "")
-        print(f'review_url po zmianach {one_url}')
         only_urls.append(one_url)
     return(only_urls)
 
-# only_company_domains = extract_company_domains()
 
-example = ['https://uk.trustpilot.com/review/www.markspix.co.uk', 'https://uk.trustpilot.com/review/yarnliving.com', 'https://uk.trustpilot.com/review/hairstory.com']
-domains = extract_company_domains(example)
+def trustpilot_urls_and_company_domains_dictionary(urls):
+    '''
+    takes list of trustpilot urls, uses function to extract company domains
+    and returns a dictionary with both trustpilot urls as keys and 
+    company_domains as values
+    '''
+    domains = extract_company_domains(urls)
+    url_and_domain_dictionary = dict(zip(urls, domains))
+    return url_and_domain_dictionary
 
-url_and_domain_dictionary = dict(zip(example, domains))
-print(url_and_domain_dictionary)
+# example = ['https://uk.trustpilot.com/review/www.solidsheds.com', 'https://uk.trustpilot.com/review/holidays.transavia.fr', 'https://uk.trustpilot.com/review/www.mtechcomms.co.uk', 'https://uk.trustpilot.com/review/www.knightsplc.com', 'https://uk.trustpilot.com/review/book2wheel.com', 'https://uk.trustpilot.com/review/www.unik-svejs.dk', 'https://uk.trustpilot.com/review/nestfs.co.uk', 'https://uk.trustpilot.com/review/musicstreamingawards.com', 'https://uk.trustpilot.com/review/enroutejewelry.com', 'https://uk.trustpilot.com/review/www.seas-nve.dk', 'https://uk.trustpilot.com/review/www.reachpharmacy.com', 'https://uk.trustpilot.com/review/askboosters.com', 'https://uk.trustpilot.com/review/papawaldis.com']
+# test_me = return_urls_and_domains_dictionary(example)
+# print(test_me)
