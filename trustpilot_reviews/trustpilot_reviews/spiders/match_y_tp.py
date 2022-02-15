@@ -1,5 +1,34 @@
-from sitemaps.extract_urls import trustpilot_urls_and_company_domains_dictionary
+from sitemaps.extract_urls import extract_urls, trustpilot_urls_and_company_domains_dictionary, extract_company_domains
+import json
 
-example = ['https://uk.trustpilot.com/review/www.solidsheds.com', 'https://uk.trustpilot.com/review/holidays.transavia.fr', 'https://uk.trustpilot.com/review/www.mtechcomms.co.uk', 'https://uk.trustpilot.com/review/www.knightsplc.com', 'https://uk.trustpilot.com/review/book2wheel.com', 'https://uk.trustpilot.com/review/www.unik-svejs.dk', 'https://uk.trustpilot.com/review/nestfs.co.uk', 'https://uk.trustpilot.com/review/musicstreamingawards.com', 'https://uk.trustpilot.com/review/enroutejewelry.com', 'https://uk.trustpilot.com/review/www.seas-nve.dk', 'https://uk.trustpilot.com/review/www.reachpharmacy.com', 'https://uk.trustpilot.com/review/askboosters.com', 'https://uk.trustpilot.com/review/papawaldis.com']
-test_me = trustpilot_urls_and_company_domains_dictionary(example)
-print(test_me)
+
+def get_yell_company_websites_list():
+    '''
+    takes the json file copied from find_company repository containing all companies searched by
+    "garage" and "northamptonshire" and makes a list of company websites
+    '''
+
+    with open('./match/yell_nthshire.json') as json_file:
+
+        data = json.load(json_file)
+        yell_company_websites = []
+        for item in data:
+            website = item["company_website"]
+            yell_company_websites.append(website)
+        return yell_company_websites
+
+trustpilot_dictionary = trustpilot_urls_and_company_domains_dictionary()
+
+yell_list = get_yell_company_websites_list()
+urls = extract_urls()
+tp_list = extract_company_domains(urls)
+for item in tp_list:
+    print(item)
+
+# companies_matching_list = []
+
+# for tp_domain in tp_list:
+#     for y_domain in yell_list:
+#         if y_domain:
+#             if tp_domain in y_domain:
+#                 print(f'WE HAVE A MATCH {tp_domain}')
