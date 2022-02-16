@@ -34,13 +34,13 @@ class TrustpReviewSpider(scrapy.Spider):
             new_item = item.replace(",", "")
             all_content.append(new_item)
         if len(all_headers) >= 3:
-            one_header = all_headers[0]
+            one_header = all_headers[1]
             one_content = all_content[0]
 
-            two_header = all_headers[1]
+            two_header = all_headers[2]
             two_content = all_content[1]
 
-            three_header = all_headers[2]
+            three_header = all_headers[3]
             three_content = all_content[2]
             review["one_header"] = one_header
             review["one_content"] = one_content
@@ -49,10 +49,10 @@ class TrustpReviewSpider(scrapy.Spider):
             review["three_header"] = three_header
             review["three_content"] = three_content
         elif len(all_headers) == 2:
-            one_header = all_headers[0]
+            one_header = all_headers[1]
             one_content = all_content[0]
 
-            two_header = all_headers[1]
+            two_header = all_headers[2]
             two_content = all_content[1]
 
             review["one_header"] = one_header
@@ -60,7 +60,7 @@ class TrustpReviewSpider(scrapy.Spider):
             review["two_header"] = two_header
             review["two_content"] = two_content
         elif len(all_headers) == 0:
-            one_header = all_headers[0]
+            one_header = all_headers[1]
             one_content = all_content[0]
 
             review["one_header"] = one_header
