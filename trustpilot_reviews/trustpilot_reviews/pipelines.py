@@ -22,7 +22,6 @@ class TrustpilotReviewsPipeline:
         self.curr.execute("""CREATE TABLE trustpilot_tb(
             company_name text,
             summary text,
-            company_id text,
             one_header text,
             one_content text,
 
@@ -39,7 +38,7 @@ class TrustpilotReviewsPipeline:
         return review
 
     def store_db(self, review):
-        self.curr.execute("""insert into trustpilot_tb values (?,?,?)""",(
+        self.curr.execute("""insert into trustpilot_tb values (?,?,?,?,?,?,?,?)""",(
             review["company_name"],
             review["summary"],
             review["one_header"],
