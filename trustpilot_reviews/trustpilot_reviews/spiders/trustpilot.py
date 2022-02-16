@@ -1,6 +1,7 @@
 import scrapy
 from ..items import TrustpilotReviewsItem
-
+from .sitemaps.extract_urls import trustpilot_urls_and_company_domains_dictionary
+from .sitemaps.match_y_tp import get_tp_review_urls_to_scrap
 
 class TrustpReviewSpider(scrapy.Spider):
     '''
@@ -10,6 +11,8 @@ class TrustpReviewSpider(scrapy.Spider):
     name = 'trustpilot'
     allowed_domains = ['trustpilot.com']
     start_urls = ['https://uk.trustpilot.com/review/www.centralautopoint.com']
+    
+    # list obtained by running match_y_tp.py inside stiemaps directory
 
     def parse(self, response):
         review = TrustpilotReviewsItem()
@@ -54,5 +57,11 @@ class TrustpReviewSpider(scrapy.Spider):
 
             review["one_header"] = one_header
             review["one_content"] = one_content
-        
         yield review
+        # test_url = 'https://uk.trustpilot.com/review/garolla.co.uk'
+        truspilot_domains_list = ['https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/t.co', 'https://uk.trustpilot.com/review/ring.com', 'https://uk.trustpilot.com/review/inoautocentres.co.uk', 'https://uk.trustpilot.com/review/inoautocentres.co.uk', 'https://uk.trustpilot.com/review/garolla.co.uk', 'https://uk.trustpilot.com/review/etyres.co.uk', 'https://uk.trustpilot.com/review/etyres.co.uk', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.facebook.com', 'https://uk.trustpilot.com/review/www.ratedpeople.com', 'https://uk.trustpilot.com/review/www.national.co.uk', 'https://uk.trustpilot.com/review/www.national.co.uk', 'https://uk.trustpilot.com/review/www.national.co.uk', 'https://uk.trustpilot.com/review/ring.co.uk', 'https://uk.trustpilot.com/review/ring.co.uk', 'https://uk.trustpilot.com/review/sheds.co.uk', 'https://uk.trustpilot.com/review/ge.com', 'https://uk.trustpilot.com/review/ge.com', 'https://uk.trustpilot.com/review/thegaragedoorcentre.co.uk', 'https://uk.trustpilot.com/review/www.mrclutch.com', 'https://uk.trustpilot.com/review/eon.com', 'https://uk.trustpilot.com/review/www.centralautopoint.com']
+
+        for url in truspilot_domains_list:
+            if url is not None:
+                yield scrapy.Request(url, callback=self.parse)
+               

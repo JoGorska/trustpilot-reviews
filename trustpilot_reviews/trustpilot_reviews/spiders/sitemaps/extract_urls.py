@@ -38,7 +38,6 @@ def extract_company_domains(urls_list):
     '''
     only_urls = []
     for review_url in urls_list:
-        first_clean = []
         to_remove = "https://uk.trustpilot.com/review/"
 
         one_url = review_url.replace(to_remove, "")
