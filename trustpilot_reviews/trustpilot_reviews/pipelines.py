@@ -30,7 +30,7 @@ class TrustpilotReviewsPipeline(object):
             two_content text,
 
             three_header text,
-            three_content text,
+            three_content text
         )""")
 
 
