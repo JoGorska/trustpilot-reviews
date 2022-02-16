@@ -33,11 +33,11 @@ def get_tp_review_urls_to_scrap():
                     urls_list.append(urls[tp_list.index(tp_domain)])
     # print(f'BEFORE CLEANING {urls_list}')
     # to_remove = ["https://uk.trustpilot.com/review/t.co", "https://uk.trustpilot.com/review/www.facebook.com"]
-    # for page in to_remove:
-    #     if page in urls_list:
-    #         urls_list.remove(page)
+    # for dirty_url in urls_list:
+    #     if dirty_url=="https://uk.trustpilot.com/review/t.co":
+    #         urls_list.remove(dirty_url)
     # print(f'AFTER CLEANING {urls_list}')
-    print(urls_list)
+ 
     return urls_list
 
 # tp_review_urls_to_scrap_list = get_tp_review_urls_to_scrap()
