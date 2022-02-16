@@ -12,14 +12,14 @@ BOT_NAME = 'trustpilot_reviews'
 SPIDER_MODULES = ['trustpilot_reviews.spiders']
 NEWSPIDER_MODULE = 'trustpilot_reviews.spiders'
 
-# FEED_URI  ='companies.json'
+# FEED_URI  ='trustpilot.json'
 # FEED_FORMAT ='json'
 
-# 'FEED_URI': 'companies.xml',
+# 'FEED_URI': 'trustpilot.xml',
 # 'FEED_FORMAT': 'xml'
 
-# FEED_URI  ='companies.csv'
-# FEED_FORMAT ='csv'
+FEED_URI  ='trustpilot.csv'
+FEED_FORMAT ='csv'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36'
