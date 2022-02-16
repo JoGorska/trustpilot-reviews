@@ -42,16 +42,6 @@ def extract_company_domains(urls_list):
         to_remove = "https://uk.trustpilot.com/review/"
 
         one_url = review_url.replace(to_remove, "")
-        # first_clean.append(one_url)
-        # for clean_url in first_clean:
-        #     if "www." in clean_url:
-        #         clean_url = clean_url.replace("www.", "")
-        #     elif ".com" in clean_url:
-        #         clean_url = clean_url.replace(".com", "")
-        #     elif ".co.uk" in clean_url:
-        #         clean_url = clean_url.replace(".co.uk", "")
-
-        #     only_urls.append(clean_url)
         only_urls.append(one_url)
         
     return(only_urls)
@@ -63,12 +53,7 @@ def trustpilot_urls_and_company_domains_dictionary():
     and returns a dictionary with both trustpilot urls as keys and 
     company_domains as values
     '''
-    # urls = extract_urls()
-    urls = ['https://uk.trustpilot.com/review/www.centralautopoint.com, https://uk.trustpilot.com/review/www.solidsheds.com', 'https://uk.trustpilot.com/review/holidays.transavia.fr', 'https://uk.trustpilot.com/review/www.mtechcomms.co.uk', 'https://uk.trustpilot.com/review/www.knightsplc.com', 'https://uk.trustpilot.com/review/book2wheel.com', 'https://uk.trustpilot.com/review/www.unik-svejs.dk', 'https://uk.trustpilot.com/review/nestfs.co.uk', 'https://uk.trustpilot.com/review/musicstreamingawards.com', 'https://uk.trustpilot.com/review/enroutejewelry.com', 'https://uk.trustpilot.com/review/www.seas-nve.dk', 'https://uk.trustpilot.com/review/www.reachpharmacy.com', 'https://uk.trustpilot.com/review/askboosters.com', 'https://uk.trustpilot.com/review/papawaldis.com']
+    urls = extract_urls()
     domains = extract_company_domains(urls)
     url_and_domain_dictionary = dict(zip(urls, domains))
     return url_and_domain_dictionary
-
-# example = ['https://uk.trustpilot.com/review/www.solidsheds.com', 'https://uk.trustpilot.com/review/holidays.transavia.fr', 'https://uk.trustpilot.com/review/www.mtechcomms.co.uk', 'https://uk.trustpilot.com/review/www.knightsplc.com', 'https://uk.trustpilot.com/review/book2wheel.com', 'https://uk.trustpilot.com/review/www.unik-svejs.dk', 'https://uk.trustpilot.com/review/nestfs.co.uk', 'https://uk.trustpilot.com/review/musicstreamingawards.com', 'https://uk.trustpilot.com/review/enroutejewelry.com', 'https://uk.trustpilot.com/review/www.seas-nve.dk', 'https://uk.trustpilot.com/review/www.reachpharmacy.com', 'https://uk.trustpilot.com/review/askboosters.com', 'https://uk.trustpilot.com/review/papawaldis.com']
-# test_me = return_urls_and_domains_dictionary(example)
-# print(test_me)
