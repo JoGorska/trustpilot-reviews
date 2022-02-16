@@ -23,8 +23,16 @@ class TrustpReviewSpider(scrapy.Spider):
         article_container = response.xpath('//article').extract()
         print(len(article_container))
 
-        all_headers = response.xpath('//h2/a/text()').extract()
-        all_content = response.xpath('//div[@class="styles_reviewContent__0Q2Tg"]/p/text()').extract()
+        all_headers_with_commas = response.xpath('//h2/a/text()').extract()
+        all_headers = []
+        for item in all_headers_with_commas:
+            new_item = item.replace(",", "")
+            all_headers.append(new_item)
+        all_content_with_commas = response.xpath('//div[@class="styles_reviewContent__0Q2Tg"]/p/text()').extract()
+        all_content = []
+        for item in all_content_with_commas:
+            new_item = item.replace(",", "")
+            all_content.append(new_item)
         if len(all_headers) >= 3:
             one_header = all_headers[0]
             one_content = all_content[0]
