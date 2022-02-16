@@ -72,4 +72,4 @@ class TrustpReviewSpider(scrapy.Spider):
         for url in truspilot_domains_list:
             if url is not None:
                 yield scrapy.Request(url, callback=self.parse)
-               
+                   

@@ -8,7 +8,7 @@
 from itemadapter import ItemAdapter
 import sqlite3
 
-class TrustpilotReviewsPipeline:
+class TrustpilotReviewsPipeline(object):
     def __init__(self):
         self.create_connection()
         self.create_table()
@@ -22,6 +22,7 @@ class TrustpilotReviewsPipeline:
         self.curr.execute("""CREATE TABLE trustpilot_tb(
             company_name text,
             summary text,
+
             one_header text,
             one_content text,
 
@@ -33,19 +34,19 @@ class TrustpilotReviewsPipeline:
         )""")
 
 
-    def process_item(self, review, spider):
-        self.store_db(review)
-        return review
+    def process_item(self, item, spider):
+        self.store_db(item)
+        return item
 
-    def store_db(self, review):
+    def store_db(self, item):
         self.curr.execute("""insert into trustpilot_tb values (?,?,?,?,?,?,?,?)""",(
-            review["company_name"],
-            review["summary"],
-            review["one_header"],
-            review["one_content"],
-            review["two_header"],
-            review["two_content"],
-            review["three_header"],
-            review["three_content"]
+            item["company_name"],
+            item["summary"],
+            item["one_header"],
+            item["one_content"],
+            item["two_header"],
+            item["two_content"],
+            item["three_header"],
+            item["three_content"]
         ))
         self.conn.commit()
