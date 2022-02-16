@@ -1,4 +1,4 @@
-from sitemaps.extract_urls import extract_urls, trustpilot_urls_and_company_domains_dictionary, extract_company_domains
+from .extract_urls import extract_urls, trustpilot_urls_and_company_domains_dictionary, extract_company_domains
 import json
 
 
@@ -41,4 +41,4 @@ def get_tp_review_urls_to_scrap():
     # print(f'AFTER CLEANING {urls_list}')
     return urls_list
 
-tp_review_urls_to_scrap_list = get_tp_review_urls_to_scrap()
+# tp_review_urls_to_scrap_list = get_tp_review_urls_to_scrap()

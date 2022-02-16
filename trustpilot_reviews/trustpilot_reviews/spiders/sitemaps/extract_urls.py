@@ -8,16 +8,16 @@ def extract_urls():
     takes list of all sitemap files and extracts urls into a list
     '''
     all_sitemaps = [
-    r'./sitemaps/domains0_en-gb.xml',
-    r'./sitemaps/domains1_en-gb.xml',
-    r'./sitemaps/domains2_en-gb.xml',
-    r'./sitemaps/domains3_en-gb.xml',
-    r'./sitemaps/domains4_en-gb.xml',
-    r'./sitemaps/domains5_en-gb.xml',
-    r'./sitemaps/domains6_en-gb.xml',
-    r'./sitemaps/domains7_en-gb.xml',
-    r'./sitemaps/domains8_en-gb.xml',
-    r'./sitemaps/domains9_en-gb.xml']
+    r'./domains0_en-gb.xml',
+    r'./domains1_en-gb.xml',
+    r'./domains2_en-gb.xml',
+    r'./domains3_en-gb.xml',
+    r'./domains4_en-gb.xml',
+    r'./domains5_en-gb.xml',
+    r'./domains6_en-gb.xml',
+    r'./domains7_en-gb.xml',
+    r'./domains8_en-gb.xml',
+    r'./domains9_en-gb.xml']
 
     all_review_urls = []
     for file in all_sitemaps:
