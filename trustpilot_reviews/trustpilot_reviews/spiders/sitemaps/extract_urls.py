@@ -42,16 +42,17 @@ def extract_company_domains(urls_list):
         to_remove = "https://uk.trustpilot.com/review/"
 
         one_url = review_url.replace(to_remove, "")
-        first_clean.append(one_url)
-        for clean_url in first_clean:
-            if "www." in clean_url:
-                clean_url = clean_url.replace("www.", "")
-            elif ".com" in clean_url:
-                clean_url = clean_url.replace(".com", "")
-            elif ".co.uk" in clean_url:
-                clean_url = clean_url.replace(".co.uk", "")
+        # first_clean.append(one_url)
+        # for clean_url in first_clean:
+        #     if "www." in clean_url:
+        #         clean_url = clean_url.replace("www.", "")
+        #     elif ".com" in clean_url:
+        #         clean_url = clean_url.replace(".com", "")
+        #     elif ".co.uk" in clean_url:
+        #         clean_url = clean_url.replace(".co.uk", "")
 
-            only_urls.append(clean_url)
+        #     only_urls.append(clean_url)
+        only_urls.append(one_url)
         
     return(only_urls)
 

@@ -22,13 +22,23 @@ trustpilot_dictionary = trustpilot_urls_and_company_domains_dictionary()
 yell_list = get_yell_company_websites_list()
 urls = extract_urls()
 tp_list = extract_company_domains(urls)
-for item in tp_list:
-    print(item)
 
-# companies_matching_list = []
 
-# for tp_domain in tp_list:
-#     for y_domain in yell_list:
-#         if y_domain:
-#             if tp_domain in y_domain:
-#                 print(f'WE HAVE A MATCH {tp_domain}')
+def get_tp_review_urls_to_scrap():
+    urls_list = []
+    for tp_domain in tp_list:
+        for y_domain in yell_list:
+            if y_domain:
+                if tp_domain in y_domain:
+                    urls_list.append(urls[tp_list.index(tp_domain)])
+    one_extra = "https://uk.trustpilot.com/review/www.centralautopoint.com"
+    urls_list.append(one_extra)
+    # print(f'BEFORE CLEANING {urls_list}')
+    # to_remove = ["https://uk.trustpilot.com/review/t.co", "https://uk.trustpilot.com/review/www.facebook.com"]
+    # for page in to_remove:
+    #     if page in urls_list:
+    #         urls_list.remove(page)
+    # print(f'AFTER CLEANING {urls_list}')
+    return urls_list
+
+tp_review_urls_to_scrap_list = get_tp_review_urls_to_scrap()

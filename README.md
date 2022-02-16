@@ -88,6 +88,12 @@ I have downloaded all 9 sitemaps containing domain lists.
 
 - this gives me possibility to get more companies out of yell, by creating more spiders for other counties or categories, they would all return the same item
 
+- after running forloop to compare results between trustpilot and yell it didn't return my example company
+
+Central Autopoint in Corby:
+real webstie addres 'http://www.motcorby.co.uk/' which is correctly typed in yell
+not real website address 'www.centralautopoint.com' which is submitted in trustpilot profile.
+
 ### Robots.txt
 
 Robots.txt file can be found [here](https://www.trustpilot.com/robots.txt)
